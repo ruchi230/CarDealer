@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewBag.Title = "AddEditUser";
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+}
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Dashboard/Index">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/AddEditCategory">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/Category">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Category</span>
+            </a>
+        </li><!-- End Manageuser Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="~/ManageUser/AddEditUser">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage User</span>
+            </a>
+        </li><!-- End Manageuser Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageContact/ContactDetails">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage ContactDetail</span>
+            </a>
+        </li><!-- End ManageContactDetail Nav -->
+    </ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>User Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            @foreach (CarDealer.EF.tblusermessage item in (ViewBag.list))
+            {
+                <tr>
+                    <th>@item.Id</th>
+                    <th>@item.Name</th>
+                    <th>@item.Email</th>
+                    <th>@item.Subject</th>
+                    <th>@item.Message</th>
+                    <th><a href="DeleteUser/@item.Id">Delete</a></th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</main>
+

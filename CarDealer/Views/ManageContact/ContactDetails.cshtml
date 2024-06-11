@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "ContactDetails";
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+    var categoryInfo = Session["info"] as CarDealer.EF.tbllocation;
+    var btnText = categoryInfo.Id > 0 ? "update" : "Submit";
+}
+
+!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Dashboard/Index">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/AddEditCategory">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/Category">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageUser/AddEditUser">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage User</span>
+            </a>
+        </li><!-- End Manageuser Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="~/ManageContact/ContactDetails">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage ContactDetail</span>
+            </a>
+        </li><!-- End ManageContactDetail Nav -->
+    </ul>
+
+</aside><!-- End Sidebar-->
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Manage category</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Dashboard/Index">Home</a></li>
+                <li class="breadcrumb-item">Manage category</li>
+                @*<li class="breadcrumb-item active">Data</li>*@
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <form method="post" action="ContactDetails">
+
+
+        <input type="hidden" name="conid" value="@categoryInfo.Id" />
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Phone</span>
+            <input type="text" class="form-control" id="Phone" name="Phone" value="@categoryInfo.Phone">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Email</span>
+            <input type="text" class="form-control" id="Email" name="Email" value="@categoryInfo.Email">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">Location</span>
+            <input type="text" class="form-control" id="Address" name="Address" value="@categoryInfo.Address">
+        </div>
+        <button type="submit" class="btn btn-outline-primary" id="save" name="save">@btnText</button>
+        
+
+
+    </form>
+    <hr />
+    <hr />
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            @foreach (CarDealer.EF.tbllocation item in (ViewBag.data))
+            {
+                <tr>
+                    <th>@item.Id</th>
+                    <th>@item.Phone</th>
+                    <th>@item.Email</th>
+                    <th>@item.Address</th>
+                    <th><a class="btn btn-link" href="Edit/@item.Id">Edit</a>&nbsp;<a class="btn btn-link" onclick="return confirm('Are u sure??');" href="Delete/@item.Id">Delete</a></th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</main>
+

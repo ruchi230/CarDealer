@@ -1,0 +1,139 @@
+﻿@model CarDealer.EF.tblcar
+@{
+    ViewBag.Title = "Cars";
+    Layout = "~/Views/Shared/_uLayout.cshtml";
+}
+
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="Index"><h2>Car Dealer</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="Cars">Cars</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="AboutUs">About Us</a>
+
+                            <a class="dropdown-item" href="Team">Team</a>
+                            <a class="dropdown-item" href="Testimonials">Testimonials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Page Content -->
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Cars</h1>
+                <span>Lorem ipsum dolor sit amet.</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="services">
+    <div class="container">
+        <form action="cars" method="get" id="contact">
+
+            <div class="row" style="justify-content: center;">
+                @*<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                        <div class="form-group">
+                            <label>Used/New:</label>
+
+                            <select class="form-control">
+                                <option value="">All</option>
+                                <option value="new">New vehicle</option>
+                                <option value="used">Used vehicle</option>
+                            </select>
+                        </div>
+                    </div>*@
+
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div class="form-group">
+                        <label>City:</label>
+
+                        <select class="form-control" aria-label="Default select example" id="city" name="search">
+                            <option selected>Select City</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Vadodara">Vadodara</option>
+                            <option value="Ahmedabad">Ahmedabad</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-4 offset-sm-4">
+                <div class="main-button text-center">
+                    <button type="submit" style="background-color: #a4c639; color: #fff; font-size: 13px; text-transform: uppercase; font-weight: 700; padding: 12px 30px; border-radius: 30px; display: inline-block; transition: all 0.3s; box-sizing: border-box; border : hidden; " class="filled-button" onclick="window.location.href='<%= Url.Action(" Cars","Home")">Search</button>
+
+                </div>
+            </div>
+            <br>
+            <br>
+        </form>
+
+        <div class="row">
+
+
+            @foreach (CarDealer.EF.tblcar item in (ViewBag.detail))
+            {
+
+
+
+                <div class="col-md-4">
+                    <div class="service-item">
+                        <img src="@item.Image" alt="alternate text" height="250" width="200">
+                        <div class="down-content">
+                            <h4>@item.Model</h4>
+                            <div style="margin-bottom:10px;">
+                                <span>
+                                    <del>@item.CarPrice</del> &nbsp; @item.OfferPrice
+                                </span>
+                            </div>
+
+                            <p>
+                                <i class="fa fa-dashboard"></i> @item.Mileage &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cube"></i> @item.EngineSize &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog"></i> @item.GearBox &nbsp;&nbsp;&nbsp;
+                                <i class="fa fa-cog"></i> @item.City &nbsp;&nbsp;&nbsp;
+
+                            </p>
+                            <a href="CarsDetail/@item.Id" class="filled-button" onclick="@("window.location.href='" + Url.Action("CarsDetail","Home") +"'");">View More</a>
+                        </div>
+                    </div>
+
+                    <br>
+
+
+                </div>
+
+
+            }
+
+
+        </div>
+    </div>
+</div>

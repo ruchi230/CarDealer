@@ -1,0 +1,230 @@
+﻿@model CarDealer.EF.tblcar
+@{
+    ViewBag.Title = "AddEditCategory";
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+}
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Dashboard/Index">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="~/ManageCategory/AddEditCategory">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/Category">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageUser/AddEditUser">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage User</span>
+            </a>
+        </li><!-- End Manageuser Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageContact/ContactDetails">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage ContactDetail</span>
+            </a>
+        </li><!-- End ManageContactDetail Nav -->
+    </ul>
+
+</aside><!-- End Sidebar-->
+
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Manage category</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="~/Dashboard/Index">Home</a></li>
+                <li class="breadcrumb-item">Manage category</li>
+                @*<li class="breadcrumb-item active">Data</li>*@
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <form method="post" action="AddEditCategory" enctype="multipart/form-data">
+
+
+        @if (Model.Id > 0)
+        {
+            <input type="hidden" name="cid" value="@Model.Id" />
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Price</span>
+                <input type="text" class="form-control" placeholder="enter price" id="CarPrice" name="CarPrice" value="@Model.CarPrice">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Offer Price</span>
+                <input type="text" class="form-control" placeholder="enter price" id="OfferPrice" name="OfferPrice" value="@Model.OfferPrice">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">City</span>
+                <select class="form-select" aria-label="Default select example" id="city" name="city">
+                    <option selected>@Model.City</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                </select>
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Make</span>
+                <input type="text" class="form-control" placeholder="enter Brand name" id="Make" name="Make" value="@Model.Make">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Model</span>
+                <input type="text" class="form-control" placeholder="enter model name" id="Model" name="Model" value="@Model.Model">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Registration</span>
+                <input type="text" class="form-control" placeholder="enter first registration date" id="FirstRegistration" name="FirstRegistration" value="@Model.FirstRegistration">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Mileage</span>
+                <input type="text" class="form-control" placeholder="enter mileage" id="Mileage" name="Mileage" value="@Model.Mileage">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fuel</span>
+                <input type="text" class="form-control" placeholder="enter fuel type" id="Fuel" name="Fuel" value="@Model.Fuel">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Engine Size</span>
+                <input type="text" class="form-control" placeholder="enter engine size" id="EngineSize" name="EngineSize" value="@Model.EngineSize">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Power</span>
+                <input type="text" class="form-control" placeholder="enter power" id="Power" name="Power" value="@Model.Power">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Gearbox</span>
+                <input type="text" class="form-control" placeholder="enter gearbox type" id="GearBox" name="GearBox" value="@Model.GearBox">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Number of seats</span>
+                <input type="text" class="form-control" placeholder="enter number of seats" id="NumberOfSeat" name="NumberOfSeat" value="@Model.NumberOfSeat">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Doors</span>
+                <input type="text" class="form-control" placeholder="enter number of doors" id="Doors" name="Doors" value="@Model.Doors">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Color</span>
+                <input type="text" class="form-control" placeholder="enter color of car" id="Color" name="Color" value="@Model.Color">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Car Description</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="enter car description" id="Description" name="Description">@Model.Description</textarea>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Car Extra</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="enter extra part of car" id="Extra" name="Extra">@Model.Extra</textarea>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01">Image</label>
+                <input type="hidden" name="imgval" value="@Model.Image" />
+                <img src="@Model.Image" alt="@Model.Image" hight="300" width="300" />
+                <input type="file" class="form-control" id="ufile" name="ufile">
+            </div>
+            <button type="submit" onclick="return alert('updated');" class="btn btn-outline-primary" id="update" name="save">Update</button>
+            
+        }
+        else
+        {
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Price</span>
+                <input type="text" class="form-control" placeholder="enter price" id="CarPrice" name="CarPrice">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Offer Price</span>
+                <input type="text" class="form-control" placeholder="enter price" id="OfferPrice" name="OfferPrice">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">City</span>
+                <select class="form-select" aria-label="Default select example" id="city" name="city">
+                    <option selected>Select City</option>
+                    <option value="Surat">Surat</option>
+                    <option value="Vadodara">Vadodara</option>
+                    <option value="Ahmedabad">Ahmedabad</option>
+                </select>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Make</span>
+                <input type="text" class="form-control" placeholder="enter Brand name" id="Make" name="Make">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Model</span>
+                <input type="text" class="form-control" placeholder="enter model name" id="Model" name="Model">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">First Registration</span>
+                <input type="text" class="form-control" placeholder="enter first registration date" id="FirstRegistration" name="FirstRegistration">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Mileage</span>
+                <input type="text" class="form-control" placeholder="enter mileage" id="Mileage" name="Mileage">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Fuel</span>
+                <input type="text" class="form-control" placeholder="enter fuel type" id="Fuel" name="Fuel">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Engine Size</span>
+                <input type="text" class="form-control" placeholder="enter engine size" id="EngineSize" name="EngineSize">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Power</span>
+                <input type="text" class="form-control" placeholder="enter power" id="Power" name="Power">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Gearbox</span>
+                <input type="text" class="form-control" placeholder="enter gearbox type" id="GearBox" name="GearBox">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Number of seats</span>
+                <input type="text" class="form-control" placeholder="enter number of seats" id="NumberOfSeat" name="NumberOfSeat">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Doors</span>
+                <input type="text" class="form-control" placeholder="enter number of doors" id="Doors" name="Doors">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Color</span>
+                <input type="text" class="form-control" placeholder="enter color of car" id="Color" name="Color">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Car Description</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="enter car description" id="Description" name="Description"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text">Car Extra</span>
+                <textarea class="form-control" aria-label="With textarea" placeholder="enter extra part of car" id="Extra" name="Extra"></textarea>
+            </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupFile01">Image</label>
+                <input type="file" class="form-control" id="ufile" name="ufile">
+            </div>
+            <button type="submit" class="btn btn-outline-primary" id="save" name="save">Save</button>
+            
+        }
+
+    </form>
+    <hr />
+
+</main>
+

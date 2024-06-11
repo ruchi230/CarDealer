@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Category";
+    Layout = "~/Views/Shared/_aLayout.cshtml";
+}
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+    <ul class="sidebar-nav" id="sidebar-nav">
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/Dashboard/Index">
+                <i class="bi bi-grid"></i>
+                <span>Dashboard</span>
+            </a>
+        </li><!-- End Dashboard Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageCategory/AddEditCategory">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link" href="~/ManageCategory/Category">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Category</span>
+            </a>
+        </li><!-- End Managecategory Nav -->
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageUser/AddEditUser">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage User</span>
+            </a>
+        </li><!-- End Manageuser Nav -->
+
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="~/ManageContact/ContactDetails">
+                <i class="bi bi-layout-text-window-reverse"></i><span>Manage ContactDetail</span>
+            </a>
+        </li><!-- End ManageContactDetail Nav -->
+    </ul>
+
+</aside><!-- End Sidebar-->
+<main id="main" class="main">
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>Id</th>
+                <th>Car Price</th>
+                <th>Offer Price</th>
+                <th>City</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>First Registration</th>
+                <th>Mileage</th>
+                <th>Fuel</th>
+                <th>Engine Size</th>
+                <th>Power</th>
+                <th>Gearbox</th>
+                <th>Number of seats</th>
+                <th>Doors</th>
+                <th>Color</th>
+                <th>Description</th>
+                <th>Extra</th>
+                <th>Image</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            @foreach (CarDealer.EF.tblcar item in (ViewBag.data))
+            {
+                <tr>
+                    <th>@item.Id</th>
+                    <th>@item.CarPrice</th>
+                    <th>@item.OfferPrice</th>
+                    <th>@item.City</th>
+                    <th>@item.Make</th>
+                    <th>@item.Model</th>
+                    <th>@item.FirstRegistration</th>
+                    <th>@item.Mileage</th>
+                    <th>@item.Fuel</th>
+                    <th>@item.EngineSize</th>
+                    <th>@item.Power</th>
+                    <th>@item.GearBox</th>
+                    <th>@item.NumberOfSeat</th>
+                    <th>@item.Doors</th>
+                    <th>@item.Color</th>
+                    <th>@item.Description</th>
+                    <th>@item.Extra</th>
+                    <th><img src="@item.Image" alt="alternate text" height="100" width="100" /></th>
+                    <th><a class="btn btn-link" href="AddEditCategory/@item.Id">Edit</a>&nbsp;<a class="btn btn-link" onclick="return confirm('Are u sure??');" href="Delete/@item.Id">Delete</a></th>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</main><!-- End #main -->

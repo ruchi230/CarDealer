@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Testimonials";
+    Layout = "~/Views/Shared/_uLayout.cshtml";
+}
+
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="Index"><h2>Car Dealer</h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Index">
+                            Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Cars">Cars</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle nav-link active" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">About</a>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="AboutUs">About Us</a>
+
+                            <a class="dropdown-item" href="Team">Team</a>
+                            <a class="dropdown-item active" href="Testimonials">Testimonials</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ContactUs">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<!-- Page Content -->
+<div class="page-heading header-text">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Testimonials</h1>
+                <span>testimonials from our greatest clients</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="testimonials" style="margin: 0">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="owl-testimonials owl-carousel">
+
+                    <div class="testimonial-item">
+                        <div class="inner-content">
+                            <h4>George Walker</h4>
+                            <span>Chief Financial Analyst</span>
+                            <p>"Nulla ullamcorper, ipsum vel condimentum congue, mi odio vehicula tellus, sit amet malesuada justo sem sit amet quam. Pellentesque in sagittis lacus."</p>
+                        </div>
+                        <img src="http://placehold.it/60x60" alt="">
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="inner-content">
+                            <h4>John Smith</h4>
+                            <span>Market Specialist</span>
+                            <p>"In eget leo ante. Sed nibh leo, laoreet accumsan euismod quis, scelerisque a nunc. Mauris accumsan, arcu id ornare malesuada, est nulla luctus nisi."</p>
+                        </div>
+                        <img src="http://placehold.it/60x60" alt="">
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="inner-content">
+                            <h4>David Wood</h4>
+                            <span>Chief Accountant</span>
+                            <p>"Ut ultricies maximus turpis, in sollicitudin ligula posuere vel. Donec finibus maximus neque, vitae egestas quam imperdiet nec. Proin nec mauris eu tortor consectetur tristique."</p>
+                        </div>
+                        <img src="http://placehold.it/60x60" alt="">
+                    </div>
+
+                    <div class="testimonial-item">
+                        <div class="inner-content">
+                            <h4>Andrew Boom</h4>
+                            <span>Marketing Head</span>
+                            <p>"Curabitur sollicitudin, tortor at suscipit volutpat, nisi arcu aliquet dui, vitae semper sem turpis quis libero. Quisque vulputate lacinia nisl ac lobortis."</p>
+                        </div>
+                        <img src="http://placehold.it/60x60" alt="">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
